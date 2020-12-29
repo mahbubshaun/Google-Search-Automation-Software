@@ -17,3 +17,4 @@ Test Cases to automate:
 
 Final result :
 
+[![Click to watch](https://img.youtube.com/vi/CBoL_2pau-4/0.jpg)](http://www.youtube.com/watch?v=CBoL_2pau-4)

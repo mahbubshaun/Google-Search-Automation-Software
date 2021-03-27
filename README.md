@@ -4,7 +4,7 @@
 
 The user wanted an automated solution that can search with a user inserted keyword into google & the software/solution needs to collect contact information (phone, email) from each website found in the search result.
 
-### Test Cases to automate:
+### Steps to automate:
 
 * Search on google with a keyword.
 * Wait for all the search results to finish loading.

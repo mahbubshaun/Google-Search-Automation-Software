@@ -20,10 +20,10 @@ public class Scraper {
     private static String ip, port, user, passw;
 
     public static void main(String[] args) {
-        rebeet();
+        startScrapingProcess();
     }
 
-    public static void rebeet() {
+    public static void startScrapingProcess() {
         SwingWorker<Void, Void> email = new SwingWorker<>() {
             @Override
             protected Void doInBackground() {
@@ -103,58 +103,4 @@ public class Scraper {
             Proxy proxy = new Proxy();
             proxy.setHttpProxy(ip + ":" + port);
             proxy.setSslProxy(ip + ":" + port);
-            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-            capabilities.setCapability("proxy", proxy);
-
-            // Configure ChromeOptions
-            options2.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-            options2.setExperimentalOption("useAutomationExtension", false);
-            options2.addArguments("--disable-blink-features=AutomationControlled");
-            options2.setCapability("requireWindowFocus", true);
-            options2.addArguments("--ignore-certificate-errors");
-            options2.addArguments("start-maximized");
-
-            // Set user-data-dir for Chrome profile
-            options2.addArguments("user-data-dir=" + path + "/googlemap");
-            capabilities.setCapability(ChromeOptions.CAPABILITY, options2);
-
-            // Initialize WebDriver
-            driver2 = new ChromeDriver(capabilities);
-            WebDriverWait wait1 = new WebDriverWait(driver2, 40);
-
-            // Perform scraping logic
-            Timestamp timestamp2 = new Timestamp(System.currentTimeMillis());
-            String t2 = String.valueOf(timestamp2);
-            String st = "[" + t2 + "] Searching keyword";
-            update(st);
-
-            driver2.get("https://www.google.com/search?q=" + textField_2.getText() + "&filter=0&biw=1366&bih=625");
-
-            Random r = new Random();
-            int low = 1000;
-            int high = 5000;
-            int wait = r.nextInt(high - low) + low;
-            Thread.sleep(wait);
-
-            for (int i = 0; i < 40; i++) {
-                if (driver2.executeScript("return document.readyState").toString().equals("complete")) {
-                    System.out.println("Page loaded");
-                    break;
-                }
-                Thread.sleep(1000);
-            }
-
-            for (int i = 0; i < 10; i++) {
-                List<WebElement> tot_res = driver2.findElements(By.xpath("//div[@class='rc']"));
-                System.out.println("Total result found in the page: " + tot_res.size());
-                // Handle pagination and scraping logic
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (driver2 != null) {
-                driver2.quit();
-            }
-        }
-    }
-}
+            DesiredCapabilities capabilities = DesiredCapab

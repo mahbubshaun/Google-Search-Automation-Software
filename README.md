@@ -16,5 +16,5 @@ The user wanted an automated solution that can search with a user inserted keywo
 * If there is a next page available on google, go to the next page and repeat all the steps
 
 ### Final result :
-
+#### Click the image below to watch tutorial video
 [![Click to watch](doc/Screenshot_18.png)](https://www.youtube.com/watch?v=CBoL_2pau-4 "Click here to watch")
